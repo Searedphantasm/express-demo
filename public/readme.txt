@@ -1,0 +1,1 @@
+This is from static middle ware.
