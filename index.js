@@ -16,6 +16,11 @@ const auth = require("./routes/auth");
 const express = require('express');
 const app = express();
 
+if (!process.env.JWT_SECRET) {
+    console.error("FATAL ERROR: jwtPrivateKey is missing!");
+    process.exit(1);
+}
+
 mongoose.connect("mongodb://localhost:27017/vidly")
     .then(() => console.log('MongoDB Connected'))
     .catch(err => console.error("Could not connect to mongodb: ", err.message));
