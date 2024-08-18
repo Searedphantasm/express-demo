@@ -17,6 +17,8 @@ const error = require("./middleware/error");
 const express = require('express');
 const app = express();
 
+
+
 if (!process.env.JWT_SECRET) {
     console.error("FATAL ERROR: jwtPrivateKey is missing!");
     process.exit(1);

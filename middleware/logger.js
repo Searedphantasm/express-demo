@@ -1,10 +1,12 @@
-function log(req, res, next) {
-  console.log("Logging...");
-  next();
-}
+const winston = require('winston');
 
-function Logger() {
-  console.log("Hello it's me");
-}
+const logger = winston.createLogger({
+  level: 'info',
+  format: winston.format.json(),
+  transports: [
+      new winston.transports.File({filename:"logfile.log",level:"error"}),
+      new winston.transports.File({filename:"combined.log"}),
+  ]
+});
 
-module.exports = log;
+module.exports = logger;
