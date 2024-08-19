@@ -6,8 +6,14 @@ const home = require("../routes/home");
 const users = require("../routes/users");
 const auth = require("../routes/auth");
 const error = require("../middleware/error");
+const express = require("express");
+const helmet = require("helmet");
 
 module.exports = function(app) {
+
+    app.use(express.json());
+    app.use(express.urlencoded({extended: true})); // key=value&name=Parsa -> req.body
+    app.use(helmet());
     app.use('/api/genres', genres)
     app.use('/api/customers', customers)
     app.use('/api/movies', movies)
