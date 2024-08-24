@@ -6,7 +6,8 @@ const logger = winston.createLogger({
   transports: [
       new winston.transports.File({filename:"logfile.log",level:"error"}),
       new winston.transports.File({filename:"combined.log"}),
-  ]
+  ],
+
 });
 
 module.exports = logger;
