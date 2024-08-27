@@ -4,6 +4,7 @@ const express = require('express');
 const router = express.Router();
 const {Genre,validateGenre} = require('../models/genre');
 const asyncMiddleware = require('../middleware/async');
+const mongoose = require("mongoose");
 
 // get all
 router.get('/', asyncMiddleware(async (req, res,next) => {
@@ -21,6 +22,8 @@ router.post('/',auth,asyncMiddleware(async (req, res) => {
 }))
 
 router.get('/:id', asyncMiddleware(async (req, res) => {
+
+
 
     const genre = await Genre.findById(req.params.id);
 
