@@ -1,3 +1,4 @@
+const validateObjectId = require('../middleware/validateObjectId')
 const auth = require("../middleware/auth");
 const admin = require("../middleware/isAdmin");
 const express = require('express');
@@ -21,7 +22,7 @@ router.post('/',auth,asyncMiddleware(async (req, res) => {
     res.send(genre);
 }))
 
-router.get('/:id', asyncMiddleware(async (req, res) => {
+router.get('/:id',validateObjectId,asyncMiddleware(async (req, res) => {
 
 
 
