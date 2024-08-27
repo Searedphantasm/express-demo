@@ -6,4 +6,5 @@ module.exports = function () {
     const db = config.get('db')
     mongoose.connect(db)
     .then(() => winston.add(new winston.transports.File({filename:"logfile.log",level:"info"})).info(`Connected to ${db}`));
+    console.log(`Connected to ${db}`);
 }
