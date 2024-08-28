@@ -33,7 +33,7 @@ router.get('/:id',validateObjectId,asyncMiddleware(async (req, res) => {
     res.send(genre);
 }));
 
-router.put('/:id',auth,asyncMiddleware(async (req, res) => {
+router.put('/:id',[auth,validateObjectId],asyncMiddleware(async (req, res) => {
     const {error} = validateGenre(req.body);
     if (error) return res.status(400).send(error.details[0].message);
 
@@ -44,7 +44,7 @@ router.put('/:id',auth,asyncMiddleware(async (req, res) => {
     res.send(genre);
 }));
 
-router.delete('/:id', [auth,admin],asyncMiddleware(async (req, res) => {
+router.delete('/:id', [auth,admin,validateObjectId],asyncMiddleware(async (req, res) => {
 
     const genre = await Genre.findByIdAndDelete(req.params.id)
 

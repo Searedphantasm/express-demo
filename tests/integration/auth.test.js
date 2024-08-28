@@ -10,7 +10,7 @@ describe('auth middleware', () => {
         server = require('../../index');
     });
     afterEach(async () => {
-        server.close();
+        await server.close();
         await Genre.deleteMany({});
     });
 

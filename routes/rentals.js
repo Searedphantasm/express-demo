@@ -5,6 +5,7 @@ const {Customer} = require("../models/customer");
 const {Movie} = require("../models/movie");
 const mongoose = require("mongoose");
 const auth = require("../middleware/auth");
+const validateObjectId = require("../middleware/validateObjectId");
 
 
 router.get('/', async (req, res) => {
