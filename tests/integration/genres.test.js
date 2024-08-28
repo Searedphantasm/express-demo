@@ -5,8 +5,6 @@ let server;
 
 describe('/api/genres', () => {
 
-
-
     beforeEach(() => {
         server = require('../../index');
     });
