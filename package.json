@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --forceExit --detectOpenHandles --watchAll --verbose --coverage --maxWorkers=1"
+    "test": "jest --forceExit --detectOpenHandles --watchAll --verbose --coverage --maxWorkers=1",
+    "start": "node index.js"
+  },
+  "engines": {
+    "node":"20.16.0"
   },
   "keywords": [],
   "author": "",
